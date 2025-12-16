@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: voting-frontend
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - voting-network
+
+networks:
+  voting-network:
+    driver: bridge
