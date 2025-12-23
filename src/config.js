@@ -2,9 +2,11 @@
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 const defaultConfig = {
-  API_URL: isDevelopment ? 'https://webapp-vote-server.onrender.com/api' : '/api',
-  SOCKET_URL: isDevelopment ? 'https://webapp-vote-server.onrender.com' : window.location.origin,
+  // API_URL: isDevelopment ? 'https://webapp-vote-server.onrender.com/api' : '/api',
+  // SOCKET_URL: isDevelopment ? 'https://webapp-vote-server.onrender.com' : window.location.origin,
   // Add other default configurations here
+  API_URL: 'https://webapp-vote-server.onrender.com/api',
+  SOCKET_URL: 'https://webapp-vote-server.onrender.com'
 };
 
 // Runtime configuration that can be overridden by config.json
@@ -19,7 +21,8 @@ export async function loadConfig() {
         ...defaultConfig, 
         ...config,
         // Ensure SOCKET_URL is set correctly based on environment
-        SOCKET_URL: config.SOCKET_URL || (isDevelopment ? 'https://webapp-vote-server.onrender.com' : window.location.origin)
+        // SOCKET_URL: config.SOCKET_URL || (isDevelopment ? 'https://webapp-vote-server.onrender.com' : window.location.origin)
+        SOCKET_URL: 'https://webapp-vote-server.onrender.com'
       };
     }
   } catch (error) {
